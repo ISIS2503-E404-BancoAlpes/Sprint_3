@@ -159,8 +159,8 @@ resources:
           sudo apt install python3-pip -y
           sudo mkdir /sprints
           cd /sprints
-          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint2.git
-          cd Sprint2
+          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint_3.git
+          cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
           sudo python3 manage.py makemigrations
@@ -197,8 +197,8 @@ resources:
           sudo apt install python3-pip -y
           sudo mkdir /sprints
           cd /sprints
-          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint2.git
-          cd Sprint2
+          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint_3.git
+          cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
           sudo python3 manage.py makemigrations
@@ -235,8 +235,8 @@ resources:
           sudo apt install python3-pip -y
           sudo mkdir /sprints
           cd /sprints
-          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint2.git
-          cd Sprint2
+          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint_3.git
+          cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
           sudo python3 manage.py makemigrations
@@ -273,8 +273,8 @@ resources:
           sudo apt install python3-pip -y
           sudo mkdir /sprints
           cd /sprints
-          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint2.git
-          cd Sprint2
+          sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint_3.git
+          cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
           sudo python3 manage.py makemigrations
