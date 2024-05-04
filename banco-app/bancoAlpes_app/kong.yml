@@ -48,6 +48,7 @@ upstreams:
       threshold: 50
       active:
         http_path: /health-check/
+        timeout: 5
         healthy:
           interval: 30
           successes: 1
