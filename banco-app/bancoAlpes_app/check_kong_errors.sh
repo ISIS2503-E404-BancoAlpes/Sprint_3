@@ -2,7 +2,7 @@
 
 LOG_FILE="/var/log/kong/error.log"  # Ajustar la ruta de configuración
 SEARCH_PATTERN="error"  # Ajustar el error que se busca
-EMAIL="admin@example.com"  # Correo para mandar notificación
+EMAIL="andresfcord@gmail.com"  # Correo para mandar notificación
 SUBJECT="Error Alert from Kong"
 TEMP_FILE="/tmp/kong_errors_found.log"
 
