@@ -1,0 +1,4 @@
+cd Sprint_3/banco-app/bancoAlpes_app/
+sudo python3 manage.py makemigrations
+sudo python3 manage.py migrate 
+python3 manage.py runserver 0.0.0.0:8080
