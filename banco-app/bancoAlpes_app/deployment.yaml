@@ -160,12 +160,11 @@ resources:
           sudo mkdir /sprints
           cd /sprints
           sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint_3.git
-          cd Sprint_3
-          cd banco-app/bancoAlpes_app/
+          cd Sprint_3/banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          sudo python3 manage.py makemigrations
-          sudo python3 manage.py migrate 
-          python3 manage.py runserver 0.0.0.0:8080 &
+          #sudo python3 manage.py makemigrations
+          #sudo python3 manage.py migrate 
+          #python3 manage.py runserver 0.0.0.0:8080 &
 
 - type: compute.v1.instance
   name: banco-app-consultas-2
@@ -201,9 +200,9 @@ resources:
           cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          sudo python3 manage.py makemigrations
-          sudo python3 manage.py migrate 
-          python3 manage.py runserver 0.0.0.0:8080 &
+          #sudo python3 manage.py makemigrations
+          #sudo python3 manage.py migrate 
+          #python3 manage.py runserver 0.0.0.0:8080 &
 
 - type: compute.v1.instance
   name: banco-app-editor-1
@@ -239,9 +238,9 @@ resources:
           cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          sudo python3 manage.py makemigrations
-          sudo python3 manage.py migrate 
-          python3 manage.py runserver 0.0.0.0:8080 &
+          #sudo python3 manage.py makemigrations
+          #sudo python3 manage.py migrate 
+          #python3 manage.py runserver 0.0.0.0:8080 &
 
 - type: compute.v1.instance
   name: banco-app-editor-2
@@ -277,9 +276,9 @@ resources:
           cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          sudo python3 manage.py makemigrations
-          sudo python3 manage.py migrate 
-          python3 manage.py runserver 0.0.0.0:8080 &
+          #sudo python3 manage.py makemigrations
+          #sudo python3 manage.py migrate 
+          #python3 manage.py runserver 0.0.0.0:8080 &
 
 
 #kong-instance
