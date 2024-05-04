@@ -19,3 +19,7 @@ sudo chmod 600 /etc/postfix/sasl_passwd
 sudo systemctl restart postfix
 sudo chmod +x /usr/local/bin/check_kong_errors.sh
 (crontab -l 2>/dev/null; echo "*/5 * * * * /usr/local/bin/check_kong_errors.sh") | crontab -
+
+# Ver Logs Kong
+sudo docker logs kong
+sudo docker logs -f kong
