@@ -49,7 +49,7 @@ upstreams:
         http_path: /health
         healthy:
           interval: 30
-          successes: 2
+          successes: 0
         unhealthy:
           interval: 10
           http_failures: 2
@@ -65,7 +65,7 @@ upstreams:
         http_path: /health
         healthy:
           interval: 30
-          successes: 2
+          successes: 0
         unhealthy:
           interval: 10
           http_failures: 2
@@ -81,7 +81,7 @@ upstreams:
         http_path: /health
         healthy:
           interval: 30
-          successes: 2
+          successes: 0
         unhealthy:
           interval: 10
           http_failures: 2
