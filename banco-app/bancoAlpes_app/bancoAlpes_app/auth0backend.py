@@ -44,6 +44,7 @@ def getId(request):
     url = "https://dev-6t2k1nsw874mleed.us.auth0.com/userinfo" 
     headers = {'authorization': 'Bearer ' + accessToken}
     resp = requests.get(url, headers=headers)
+
     userinfo = resp.json()
     id = userinfo['dev-6t2k1nsw874mleed.us.auth0.com/id'] 
     return (id)

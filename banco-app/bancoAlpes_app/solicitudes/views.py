@@ -14,7 +14,6 @@ def solicitud_list(request):
     id= getId(request)
     if role == "admin":
         solicitudes = get_solicitudes()
-        
     elif role == "user":
         #solicitudes= get_solicitudes_cliente(id)
         solicitudes= get_solicitudes()
