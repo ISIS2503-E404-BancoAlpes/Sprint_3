@@ -9,13 +9,13 @@ class SolicitudForm(forms.ModelForm):
             'id',
             'tipo',
             'fecha',
-            'cliente',
-            'llave'
+           # 'cliente',
+           # 'llave'
         ]
         labels= {
             'id':'Id',
             'tipo':'Tipo',
             'fecha':'Fecha',
-            'cliente':'Cliente',
-            'llave':'Hash'
+           # 'cliente':'Cliente',
+           # 'llave':'Hash'
         }
