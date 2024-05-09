@@ -5,7 +5,9 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from bancoAlpes_app.auth0backend import getRole, getId
- 
+from django.contrib.auth.decorators import login_required
+
+
 @login_required
 def solicitud_list(request):
     role= getRole(request)
