@@ -8,14 +8,11 @@ class SolicitudForm(forms.ModelForm):
         fields=[
             'id',
             'tipo',
-            'fecha',
-           # 'cliente',
-           # 'llave'
+            'fecha'
+      
         ]
         labels= {
             'id':'Id',
             'tipo':'Tipo',
-            'fecha':'Fecha',
-           # 'cliente':'Cliente',
-           # 'llave':'Hash'
+            'fecha':'Fecha'
         }

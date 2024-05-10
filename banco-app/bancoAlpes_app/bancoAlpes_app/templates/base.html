@@ -14,11 +14,12 @@
 
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/">
-                <img src="banco-app/bancoAlpes_app/bancoAlpes_app/static/media/logo.png" width="45" height="45" alt="logo">
+                    {% load static %}
+                <img srcsrc="{% static 'media\logo.png'%}" width="45" height="45" alt="logo">
                 </a>
             </nav>
 
-          <nav class="navbar navbar-light bg-light">
+         <nav class="navbar navbar-light bg-light">
               <a class="navbar-brand" href="/">
                   BancoAlpes App
               </a>

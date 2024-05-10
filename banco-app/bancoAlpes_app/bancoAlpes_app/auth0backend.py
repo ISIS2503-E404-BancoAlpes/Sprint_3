@@ -37,7 +37,7 @@ def getRole(request):
     role = userinfo['dev-6t2k1nsw874mleed.us.auth0.com/role'] 
     return (role)
 
-def getId(request):
+def getEmail(request):
     user = request.user 
     auth0user = user.social_auth.filter(provider="auth0")[0]
     accessToken = auth0user.extra_data['access_token'] 
@@ -46,6 +46,6 @@ def getId(request):
     resp = requests.get(url, headers=headers)
 
     userinfo = resp.json()
-    id = userinfo['dev-6t2k1nsw874mleed.us.auth0.com/id'] 
-    return (id)
+    email = userinfo['email'] 
+    return (email)
     

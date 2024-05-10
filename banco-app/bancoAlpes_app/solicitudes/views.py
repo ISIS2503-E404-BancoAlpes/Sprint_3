@@ -4,19 +4,19 @@ from .forms import SolicitudForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-from bancoAlpes_app.auth0backend import getRole, getId
+from bancoAlpes_app.auth0backend import getRole, getEmail
 from django.contrib.auth.decorators import login_required
 
 
 @login_required
 def solicitud_list(request):
     role= getRole(request)
-    id= getId(request)
+    email= getEmail(request) 
     if role == "admin":
         solicitudes = get_solicitudes()
     elif role == "user":
-        #solicitudes= get_solicitudes_cliente(id)
-        solicitudes= get_solicitudes()
+        solicitudes= get_solicitudes_cliente(email)
+       
     context={'solicitudesList':solicitudes}    
     return render(request, 'solicitudes/solicitudes.html',context)
 
@@ -24,7 +24,7 @@ def solicitud_list(request):
 def solicitud_update(request,solicitud_id):
    solicitud= get_solicitud(solicitud_id)
    role= getRole(request)
-   id= getId(request)
+    
    if role == "user":
     if request.method == 'POST':
         form= SolicitudForm(request.POST, instance=solicitud)
@@ -46,21 +46,24 @@ def solicitud_update(request,solicitud_id):
 
 @login_required
 def solicitud_create(request):
-
-    id= getId(request)
-    if request.method == 'POST':
-        form = SolicitudForm(request.POST)
-        if form.is_valid():
-            create_solicitud(form)
-            messages.add_message(request, messages.SUCCESS, 'Successfully created solicitud')
-            return HttpResponseRedirect(reverse('solicitudesCreate'))
+    role= getRole(request)
+    if role== "user":
+        email= getEmail(request)
+        if request.method == 'POST':
+            form = SolicitudForm(request.POST)
+            if form.is_valid():
+                create_solicitud(form,email)
+                messages.add_message(request, messages.SUCCESS, 'Successfully created solicitud')
+                return HttpResponseRedirect(reverse('solicitudesCreate'))
+            else:
+                print(form.errors)
         else:
-            print(form.errors)
-    else:
-       
-       form = SolicitudForm()
+        
+         form = SolicitudForm()
 
-    context = {
-        'form': form,
-    }
-    return render(request, 'solicitudes/create_solicitud.html', context)
+        context = {
+            'form': form,
+        }
+        return render(request, 'solicitudes/create_solicitud.html', context)
+    else:
+        return HttpResponse("Unauthorized User") 
