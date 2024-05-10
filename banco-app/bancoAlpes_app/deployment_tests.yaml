@@ -144,6 +144,7 @@ resources:
     networkInterfaces:
     - network: https://www.googleapis.com/compute/v1/projects/sprint2-error404-isis2503/global/networks/default
       networkIP: 10.128.0.53
+      instance_ip_mode: External
       accessConfigs:
       - name: External NAT
         type: ONE_TO_ONE_NAT

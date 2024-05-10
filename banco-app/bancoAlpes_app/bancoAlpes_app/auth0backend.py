@@ -35,7 +35,8 @@ def getRole(request):
     resp = requests.get(url, headers=headers)
     userinfo = resp.json()
     role = userinfo['dev-6t2k1nsw874mleed.us.auth0.com/role'] 
-    return (role)
+    email= userinfo['email']
+    return (role,email)
 
 def getEmail(request):
     user = request.user 

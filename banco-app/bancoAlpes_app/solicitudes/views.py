@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .logic.solicitudes_logic import get_solicitudes ,create_solicitud, get_solicitud, get_solicitudes_cliente
+from .logic.solicitudes_logic import get_solicitudes ,create_solicitud, get_solicitud, get_solicitudes_cliente,verificar_hash
 from .forms import SolicitudForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
@@ -10,26 +10,30 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def solicitud_list(request):
-    role= getRole(request)
-    email= getEmail(request) 
-    if role == "admin":
-        solicitudes = get_solicitudes()
-    elif role == "user":
-        solicitudes= get_solicitudes_cliente(email)
-       
+    role,email= getRole(request)
+    solicitudes = get_solicitudes()
+    if role == "user":
+        solicitudes_aux=[]
+        for solicitud in solicitudes:
+           if solicitud.cliente == email:  
+            solicitudes_aux.append(solicitud)
+            if not verificar_hash(solicitud):
+              solicitud.verificada=False
+        solicitudes= solicitudes_aux
+            
     context={'solicitudesList':solicitudes}    
     return render(request, 'solicitudes/solicitudes.html',context)
 
 @login_required
 def solicitud_update(request,solicitud_id):
    solicitud= get_solicitud(solicitud_id)
-   role= getRole(request)
+   role,email= getRole(request)
     
    if role == "user":
     if request.method == 'POST':
         form= SolicitudForm(request.POST, instance=solicitud)
         if form.is_valid():
-            create_solicitud(form) 
+            create_solicitud(form,email) 
             return HttpResponseRedirect(reverse("solicitudesList"))
         else:
             print(form.errors) 
@@ -46,9 +50,8 @@ def solicitud_update(request,solicitud_id):
 
 @login_required
 def solicitud_create(request):
-    role= getRole(request)
+    role,email= getRole(request)
     if role== "user":
-        email= getEmail(request)
         if request.method == 'POST':
             form = SolicitudForm(request.POST)
             if form.is_valid():

@@ -29,6 +29,7 @@
                             <th font color="red">ID</th>
                             <th>tipo</th>
                             <th>fecha</th>
+                            <th>modificada</th>
                             <th></th>
                                               </tr>
                         </thead>
@@ -39,6 +40,7 @@
                             <td>{{solicitud.id}}</td>
                             <td>{{solicitud.tipo}}</td>
                             <td>{{solicitud.fecha}}</td>
+                            <td>{{solicitud.verificada}}</td>
                             <td>
                                 <a href="{%url 'solicitudesUpdate' solicitud.id %}">
                                 Editar 
