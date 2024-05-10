@@ -28,7 +28,7 @@ def get_solicitud(solicitud_id):
 
 def create_solicitud(form,email):
     solicitud = form.save()
-    solicitud.email = email
+    solicitud.cliente = email
     solicitud.llave = calular_hash(solicitud)
     solicitud.save()
     return ()
