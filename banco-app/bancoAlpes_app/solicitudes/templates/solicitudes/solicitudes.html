@@ -36,17 +36,26 @@
                         <tbody>
 
                         {% for solicitud in solicitudesList %}
+                        
+                        {% if solicitud.verificada %}
                         <tr>
-                            <td>{{solicitud.id}}</td>
+                        {% else %}                      
+                        <tr style="background-color:red">    <td>{{solicitud.id}}</td>
+                        {% endif %}
+                    
                             <td>{{solicitud.tipo}}</td>
                             <td>{{solicitud.fecha}}</td>
-                            <td>{{solicitud.verificada}}</td>
+                            <td>{{not solicitud.verificada}}</td>
                             <td>
                                 <a href="{%url 'solicitudesUpdate' solicitud.id %}">
                                 Editar 
                                 </a>   
-                            </td>                       
+                            </td> 
                         </tr>
+                       
+
+                        </tr>
+                        
                         {% endfor %}
 
                         </tbody>
