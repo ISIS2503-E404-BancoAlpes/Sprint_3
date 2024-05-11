@@ -162,8 +162,8 @@ resources:
           sudo git clone https://github.com/ISIS2503-E404-BancoAlpes/Sprint_3.git
           cd Sprint_3/banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          #sudo python3 manage.py makemigrations
-          #sudo python3 manage.py migrate 
+          sudo python3 manage.py makemigrations
+          sudo python3 manage.py migrate 
           #python3 manage.py runserver 0.0.0.0:8080 &
 
 - type: compute.v1.instance
@@ -200,8 +200,8 @@ resources:
           cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          #sudo python3 manage.py makemigrations
-          #sudo python3 manage.py migrate 
+          sudo python3 manage.py makemigrations
+          sudo python3 manage.py migrate 
           #python3 manage.py runserver 0.0.0.0:8080 &
 
 - type: compute.v1.instance
@@ -238,8 +238,8 @@ resources:
           cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          #sudo python3 manage.py makemigrations
-          #sudo python3 manage.py migrate 
+          sudo python3 manage.py makemigrations
+          sudo python3 manage.py migrate 
           #python3 manage.py runserver 0.0.0.0:8080 &
 
 - type: compute.v1.instance
@@ -277,8 +277,8 @@ resources:
           cd Sprint_3
           cd banco-app/bancoAlpes_app/
           sudo pip3 install -r requirements.txt
-          #sudo python3 manage.py makemigrations
-          #sudo python3 manage.py migrate 
+          sudo python3 manage.py makemigrations
+          sudo python3 manage.py migrate 
           #python3 manage.py runserver 0.0.0.0:8080 &
 
 
