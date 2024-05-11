@@ -34,6 +34,7 @@ def create_solicitud(form,email):
     solicitud = form.save()
     solicitud.cliente = email
     solicitud.llave = calular_hash(solicitud)
+    solicitud.verificada= True
     solicitud.save()
     return ()
 
