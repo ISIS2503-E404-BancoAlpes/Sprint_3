@@ -1,7 +1,15 @@
 _format_version: "2.1"
 
 services:
-  
+  - host: solicitud_auth0_upstream
+    name: solicitud_auth0_service
+    protocol: http
+    routes:
+      - name: solicitud_auth0
+        paths:
+           - /complete/auth0
+        strip_path: false
+
   - host: solicitud_consultas_upstream
     name: solicitud_consultas_service
     protocol: http
@@ -62,7 +70,16 @@ upstreams:
         weight: 100
       - target: 10.128.0.54:8080
         weight: 100 
-
+  - name: solicitud_auth0_service
+      - target: 10.128.0.53:8080
+        weight: 100
+      - target: 10.128.0.54:8080
+        weight: 100 
+      - target: 10.128.0.55:8080
+        weight: 100
+      - target: 10.128.0.57:8080
+        weight: 100   
+        
   - name: solicitud_editors_upstream
     targets:
       - target: 10.128.0.55:8080
