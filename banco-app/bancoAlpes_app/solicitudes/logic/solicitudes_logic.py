@@ -21,6 +21,10 @@ def verificar_hash(solicitud):
     llave1= calular_hash(solicitud)
     return llave==llave1
 
+def modificar_sol_mod(solicitud):
+    solicitud.verificada= False
+    solicitud.save()
+    return ()    
 
 def get_solicitud(solicitud_id):
     return get_object_or_404(Solicitud,pk=solicitud_id)
@@ -32,3 +36,5 @@ def create_solicitud(form,email):
     solicitud.llave = calular_hash(solicitud)
     solicitud.save()
     return ()
+
+

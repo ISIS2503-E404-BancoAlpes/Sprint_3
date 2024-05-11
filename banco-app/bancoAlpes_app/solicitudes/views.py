@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .logic.solicitudes_logic import get_solicitudes ,create_solicitud, get_solicitud, get_solicitudes_cliente,verificar_hash
+from .logic.solicitudes_logic import get_solicitudes ,create_solicitud, get_solicitud,modificar_sol_mod ,verificar_hash
 from .forms import SolicitudForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
@@ -12,14 +12,17 @@ from django.contrib.auth.decorators import login_required
 def solicitud_list(request):
     role,email= getRole(request)
     solicitudes = get_solicitudes()
-    if role == "user":
-        solicitudes_aux=[]
-        for solicitud in solicitudes:
-           if solicitud.cliente == email:  
-            solicitudes_aux.append(solicitud)
-            if not verificar_hash(solicitud):
-              solicitud.verificada=False
-        solicitudes= solicitudes_aux
+    solicitudes_aux=[]
+    for solicitud in solicitudes:
+           if not verificar_hash(solicitud):
+              modificar_sol_mod(solicitud)
+           if role == "user":
+             if solicitud.cliente == email:  
+                solicitudes_aux.append(solicitud)
+           else: 
+              solicitudes_aux.append(solicitud)
+           
+    solicitudes= solicitudes_aux
             
     context={'solicitudesList':solicitudes}    
     return render(request, 'solicitudes/solicitudes.html',context)
