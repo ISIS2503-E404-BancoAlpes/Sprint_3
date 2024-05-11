@@ -32,7 +32,7 @@ def solicitud_update(request,solicitud_id):
    solicitud= get_solicitud(solicitud_id)
    role,email= getRole(request)
     
-   if role == "user":
+   if role == "user" and solicitud.email == email:
     if request.method == 'POST':
         form= SolicitudForm(request.POST, instance=solicitud)
         if form.is_valid():
