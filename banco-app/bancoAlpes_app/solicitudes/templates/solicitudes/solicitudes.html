@@ -29,22 +29,33 @@
                             <th font color="red">ID</th>
                             <th>tipo</th>
                             <th>fecha</th>
+                            <th>modificada</th>
                             <th></th>
                                               </tr>
                         </thead>
                         <tbody>
 
                         {% for solicitud in solicitudesList %}
+                        
+                        {% if solicitud.verificada %}
                         <tr>
+                        {% else %}                      
+                        <tr style="background-color:red">   
+                        {% endif %}
                             <td>{{solicitud.id}}</td>
                             <td>{{solicitud.tipo}}</td>
                             <td>{{solicitud.fecha}}</td>
+                            <td>{{solicitud.verificada}}</td>
                             <td>
                                 <a href="{%url 'solicitudesUpdate' solicitud.id %}">
                                 Editar 
                                 </a>   
-                            </td>                       
+                            </td> 
                         </tr>
+                       
+
+                        </tr>
+                        
                         {% endfor %}
 
                         </tbody>

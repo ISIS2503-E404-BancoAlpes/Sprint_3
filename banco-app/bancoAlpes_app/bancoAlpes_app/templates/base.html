@@ -14,11 +14,11 @@
 
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/">
-                <img src="banco-app/bancoAlpes_app/bancoAlpes_app/static/media/logo.png" width="45" height="45" alt="logo">
+                <img srcsrc="static/media/logo.png" width="45" height="45" alt="logo">
                 </a>
             </nav>
 
-          <nav class="navbar navbar-light bg-light">
+         <nav class="navbar navbar-light bg-light">
               <a class="navbar-brand" href="/">
                   BancoAlpes App
               </a>
@@ -33,6 +33,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/solicitudescreate/">Crear</a>
                 </li>
+               
                 <!--
                 <li class="nav-item">
                     <a class="nav-link" href="/solicitudesupdate/">Editar</a>
@@ -40,7 +41,18 @@
                 -->
 
             </ul>
-
+            <form class="form-inline my-2 my-lg-0">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%" class="nav-link">{{ user.username }}</a></li>
+                    <li><a style="font-size:120%; padding-right:20px" class="nav-link" href="/logout">Log out</a></li>
+                </ul>
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%; padding-right:20px" class="navbar-link" href="/login/auth0">Login</a></li>
+                </ul>
+                {% endif %}
+              </form>
           </div>
         </nav>
 

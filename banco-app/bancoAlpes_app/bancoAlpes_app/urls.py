@@ -20,5 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('', include('solicitudes.urls')),
-    path('health-check/',views.heatlh_Check)
+    path('health-check/',views.heatlh_Check),
+    path(r'', include('django.contrib.auth.urls')),
+    path(r'', include('social_django.urls')),
 ]

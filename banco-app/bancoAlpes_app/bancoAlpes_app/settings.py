@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'solicitudes',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -121,9 +122,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 
+STATIC_URL = '/static/'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+##AUTH0
+LOGIN_URL = "/login/auth0" 
+LOGIN_REDIRECT_URL = "/" 
+LOGOUT_REDIRECT_URL = "https://dev-6t2k1nsw874mleed.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F<ip_publica_instancia:8080>"#TODO
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-6t2k1nsw874mleed.us.auth0.com'#TODO 
+SOCIAL_AUTH_AUTH0_KEY = 'YxOnduu2KOHz3cfcqjlpXeLTK5zvovmB' #TODO
+SOCIAL_AUTH_AUTH0_SECRET = 'dU6PVzIl-A5aAwTEuYUUnO9DNBpZr6z0o-RuaqSqdOffe-kzjXFA-PY9lzgHaYMR'#TODO 
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile','email','role', ] 
+
+AUTHENTICATION_BACKENDS = { 'bancoAlpes_app.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend', }
